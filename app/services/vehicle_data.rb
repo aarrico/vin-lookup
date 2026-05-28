@@ -1,5 +1,5 @@
 VehicleData = Struct.new(
-    :vin,
+  :vin,
   :year,
   :make,
   :model,

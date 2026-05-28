@@ -12,7 +12,7 @@ A multi-tenant Rails JSON API for decoding vehicle identification numbers (VINs)
 
 ## Short-term goals
 
-- [ ] Complete the ETL service pipeline: `NhtsaService` → `VehicleAssembler` → `VinLookupService` → `VehiclePresenter`
+- [ ] Complete the ETL service pipeline: `NhtsaService` → `NhtsaAssembler` → `VinLookupService` → `VehiclePresenter`
 - [ ] Full RSpec coverage with WebMock (no real network calls in tests)
 - [ ] REST endpoints: `GET /api/v1/vehicles/:vin` and full CRUD on `/api/v1/inventory`
 - [ ] Demonstrate config-driven multi-tenancy at the API layer
