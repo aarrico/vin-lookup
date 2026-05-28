@@ -1,0 +1,26 @@
+{
+  "Count": 19,
+  "Message": "Results returned successfully",
+  "SearchCriteria": "VIN:1HGCM82633A004352",
+  "Results": [
+    { "Variable": "Make",                            "Value": "HONDA",                "ValueId": "474", "VariableId": 26 },
+    { "Variable": "Model",                           "Value": "Accord",               "ValueId": "1861", "VariableId": 28 },
+    { "Variable": "Model Year",                      "Value": "2003",                 "ValueId": "", "VariableId": 29 },
+    { "Variable": "Trim",                            "Value": "EX",                   "ValueId": "", "VariableId": 38 },
+    { "Variable": "Body Class",                      "Value": "Sedan/Saloon",         "ValueId": "2", "VariableId": 5 },
+    { "Variable": "Doors",                           "Value": "4",                    "ValueId": "", "VariableId": 14 },
+    { "Variable": "Drive Type",                      "Value": "FWD/Front-Wheel Drive","ValueId": "2", "VariableId": 15 },
+    { "Variable": "Transmission Style",              "Value": "Automatic",            "ValueId": "1", "VariableId": 37 },
+    { "Variable": "Fuel Type - Primary",             "Value": "Gasoline",             "ValueId": "3", "VariableId": 24 },
+    { "Variable": "Fuel Type - Secondary",           "Value": null,                   "ValueId": "", "VariableId": 25 },
+    { "Variable": "Electrification Level",           "Value": "No applicable",        "ValueId": "5", "VariableId": 126 },
+    { "Variable": "Engine Number of Cylinders",      "Value": "4",                    "ValueId": "", "VariableId": 9 },
+    { "Variable": "Displacement (L)",                "Value": "2.4",                  "ValueId": "", "VariableId": 13 },
+    { "Variable": "Battery Energy (kWh) From",       "Value": null,                   "ValueId": "", "VariableId": 58 },
+    { "Variable": "Range (Electric)",                "Value": null,                   "ValueId": "", "VariableId": 219 },
+    { "Variable": "Plug-In Charger Type",            "Value": null,                   "ValueId": "", "VariableId": 145 },
+    { "Variable": "Automatic Emergency Braking (AEB)", "Value": "Standard",          "ValueId": "1", "VariableId": 168 },
+    { "Variable": "Forward Collision Warning (FCW)", "Value": "Standard",             "ValueId": "1", "VariableId": 169 },
+    { "Variable": "Blind Spot Detection (BSD)",      "Value": "Optional",             "ValueId": "2", "VariableId": 173 }
+  ]
+}

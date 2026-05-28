@@ -1,0 +1,23 @@
+{
+  "Count": 16,
+  "Message": "Results returned successfully",
+  "SearchCriteria": "VIN:5UXTE6C50L9B00000",
+  "Results": [
+    { "Variable": "Make",                            "Value": "BMW",                  "ValueId": "567", "VariableId": 26 },
+    { "Variable": "Model",                           "Value": "X5",                   "ValueId": "3011", "VariableId": 28 },
+    { "Variable": "Model Year",                      "Value": "2020",                 "ValueId": "", "VariableId": 29 },
+    { "Variable": "Trim",                            "Value": "xDrive45e",            "ValueId": "", "VariableId": 38 },
+    { "Variable": "Body Class",                      "Value": "Sport Utility Vehicle (SUV)/Multi-Purpose Vehicle (MPV)", "ValueId": "7", "VariableId": 5 },
+    { "Variable": "Doors",                           "Value": "4",                    "ValueId": "", "VariableId": 14 },
+    { "Variable": "Drive Type",                      "Value": "AWD/All-Wheel Drive",  "ValueId": "4", "VariableId": 15 },
+    { "Variable": "Transmission Style",              "Value": "Automatic",            "ValueId": "1", "VariableId": 37 },
+    { "Variable": "Fuel Type - Primary",             "Value": "Gasoline",             "ValueId": "3", "VariableId": 24 },
+    { "Variable": "Fuel Type - Secondary",           "Value": "Electric",             "ValueId": "14", "VariableId": 25 },
+    { "Variable": "Electrification Level",           "Value": "PHEV",                 "ValueId": "2", "VariableId": 126 },
+    { "Variable": "Engine Number of Cylinders",      "Value": "6",                    "ValueId": "", "VariableId": 9 },
+    { "Variable": "Displacement (L)",                "Value": "3.0",                  "ValueId": "", "VariableId": 13 },
+    { "Variable": "Battery Energy (kWh) From",       "Value": "24.0",                 "ValueId": "", "VariableId": 58 },
+    { "Variable": "Range (Electric)",                "Value": "31",                   "ValueId": "", "VariableId": 219 },
+    { "Variable": "Plug-In Charger Type",            "Value": "SAE J1772",            "ValueId": "", "VariableId": 145 }
+  ]
+}

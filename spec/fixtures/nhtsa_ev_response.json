@@ -1,0 +1,23 @@
+{
+  "Count": 16,
+  "Message": "Results returned successfully",
+  "SearchCriteria": "VIN:5YJ3E1EA1LF700000",
+  "Results": [
+    { "Variable": "Make",                            "Value": "TESLA",                "ValueId": "582", "VariableId": 26 },
+    { "Variable": "Model",                           "Value": "Model 3",              "ValueId": "2008", "VariableId": 28 },
+    { "Variable": "Model Year",                      "Value": "2020",                 "ValueId": "", "VariableId": 29 },
+    { "Variable": "Trim",                            "Value": "Long Range",           "ValueId": "", "VariableId": 38 },
+    { "Variable": "Body Class",                      "Value": "Sedan/Saloon",         "ValueId": "2", "VariableId": 5 },
+    { "Variable": "Doors",                           "Value": "4",                    "ValueId": "", "VariableId": 14 },
+    { "Variable": "Drive Type",                      "Value": "AWD/All-Wheel Drive",  "ValueId": "4", "VariableId": 15 },
+    { "Variable": "Transmission Style",              "Value": "Automatic",            "ValueId": "1", "VariableId": 37 },
+    { "Variable": "Fuel Type - Primary",             "Value": "Electric",             "ValueId": "14", "VariableId": 24 },
+    { "Variable": "Fuel Type - Secondary",           "Value": null,                   "ValueId": "", "VariableId": 25 },
+    { "Variable": "Electrification Level",           "Value": "BEV",                  "ValueId": "3", "VariableId": 126 },
+    { "Variable": "Engine Number of Cylinders",      "Value": null,                   "ValueId": "", "VariableId": 9 },
+    { "Variable": "Displacement (L)",                "Value": null,                   "ValueId": "", "VariableId": 13 },
+    { "Variable": "Battery Energy (kWh) From",       "Value": "75.0",                 "ValueId": "", "VariableId": 58 },
+    { "Variable": "Range (Electric)",                "Value": "322",                  "ValueId": "", "VariableId": 219 },
+    { "Variable": "Plug-In Charger Type",            "Value": "Tesla Connector",      "ValueId": "", "VariableId": 145 }
+  ]
+}
