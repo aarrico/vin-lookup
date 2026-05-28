@@ -1,0 +1,2 @@
+class VehicleLookup < ApplicationRecord
+end

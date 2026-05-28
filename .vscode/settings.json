@@ -1,0 +1,49 @@
+{
+  // --- Ruby LSP: the single language server doing completion, nav, lint & format ---
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "rbenv"
+  },
+  "rubyLsp.formatter": "rubocop",
+  "rubyLsp.linters": ["rubocop"],
+
+  // --- Ruby files: 2-space indent + format-on-save via RuboCop (omakase) ---
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [120]
+  },
+
+  // Treat Rails-specific files without a .rb extension as Ruby
+  "files.associations": {
+    "Gemfile": "ruby",
+    "Rakefile": "ruby",
+    "*.jbuilder": "ruby",
+    ".rubocop.yml": "yaml"
+  },
+
+  // --- Keep search/file-watching out of generated dirs so the editor stays fast ---
+  "search.exclude": {
+    "**/tmp/**": true,
+    "**/log/**": true,
+    "**/storage/**": true,
+    "**/coverage/**": true,
+    "**/.ruby-lsp/**": true,
+    "**/*.sqlite3": true,
+    "**/*.sqlite3-*": true
+  },
+  "files.watcherExclude": {
+    "**/tmp/**": true,
+    "**/log/**": true,
+    "**/storage/**": true,
+    "**/.ruby-lsp/**": true
+  },
+
+  // Trim noise on save (RuboCop will still own the final formatting pass)
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true
+}

@@ -40,4 +40,7 @@
 # Ignore RSpec status file.
 /.rspec_status
 
+# Ignore the Ruby LSP's auto-generated composed bundle.
+/.ruby-lsp/
+
 /docs/*

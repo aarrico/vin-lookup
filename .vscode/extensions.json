@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "Shopify.ruby-lsp",
+    "redhat.vscode-yaml",
+    "alexcvzz.vscode-sqlite",
+    "editorconfig.editorconfig"
+  ],
+  "unwantedRecommendations": [
+    "castwide.solargraph",
+    "rebornix.ruby",
+    "misogi.ruby-rubocop"
+  ]
+}
