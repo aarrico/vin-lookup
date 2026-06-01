@@ -28,7 +28,7 @@ class NhtsaAssembler
     is_ev           = powertrain_type == :ev
 
     powertrain = PowertrainData.new(
-      type:                  powertrain_type,
+      propulsion:             powertrain_type,
       fuel_primary:          nhtsa_hash["Fuel Type - Primary"],
       fuel_secondary:        nhtsa_hash["Fuel Type - Secondary"].presence,
       displacement_l:        is_ev ? nil : nhtsa_hash["Displacement (L)"]&.to_f,

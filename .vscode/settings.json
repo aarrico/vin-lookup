@@ -45,5 +45,8 @@
   // Trim noise on save (RuboCop will still own the final formatting pass)
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true
+  "files.trimFinalNewlines": true,
+  "editor.defaultFormatter": "Shopify.ruby-lsp",
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange"
 }

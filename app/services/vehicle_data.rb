@@ -1,4 +1,4 @@
-VehicleData = Struct.new(
+VehicleData = Data.define(
   :vin,
   :year,
   :make,
@@ -10,6 +10,11 @@ VehicleData = Struct.new(
   :transmission,
   :powertrain,
   :features,
-  :source,
-  keyword_init: true
-)
+  :source
+) do
+  def to_display_hash
+    to_h.transform_keys(&:to_s)
+        .except("source")
+        .merge("powertrain" => powertrain&.to_display_hash)
+  end
+end

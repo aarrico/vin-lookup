@@ -25,7 +25,7 @@ RSpec.describe NhtsaAssembler do
       end
 
       it "sets powertrain type to :gas" do
-        expect(vehicle.powertrain.type).to eq(:gas)
+        expect(vehicle.powertrain.propulsion).to eq(:gas)
       end
 
       it "maps gas powertrain fields" do
@@ -59,7 +59,7 @@ RSpec.describe NhtsaAssembler do
       subject(:vehicle) { described_class.call("5YJ3E1EA1LF700000", hash) }
 
       it "sets powertrain type to :ev" do
-        expect(vehicle.powertrain.type).to eq(:ev)
+        expect(vehicle.powertrain.propulsion).to eq(:ev)
       end
 
       it "maps EV-specific fields" do
@@ -79,7 +79,7 @@ RSpec.describe NhtsaAssembler do
       subject(:vehicle) { described_class.call("5UXTE6C50L9B00000", hash) }
 
       it "sets powertrain type to :plugin_hybrid" do
-        expect(vehicle.powertrain.type).to eq(:plugin_hybrid)
+        expect(vehicle.powertrain.propulsion).to eq(:plugin_hybrid)
       end
 
       it "maps both gas and EV fields" do
@@ -105,7 +105,7 @@ RSpec.describe NhtsaAssembler do
       subject(:vehicle) { described_class.call("STRONGHEV0000000", hash) }
 
       it "sets powertrain type to :hybrid" do
-        expect(vehicle.powertrain.type).to eq(:hybrid)
+        expect(vehicle.powertrain.propulsion).to eq(:hybrid)
       end
 
       it "keeps gas engine fields but has no plug" do
@@ -125,7 +125,7 @@ RSpec.describe NhtsaAssembler do
       subject(:vehicle) { described_class.call("MILDHEV000000000", hash) }
 
       it "sets powertrain type to :mild_hybrid" do
-        expect(vehicle.powertrain.type).to eq(:mild_hybrid)
+        expect(vehicle.powertrain.propulsion).to eq(:mild_hybrid)
       end
     end
 
@@ -138,7 +138,7 @@ RSpec.describe NhtsaAssembler do
       subject(:vehicle) { described_class.call("HEVUNKNOWN000000", hash) }
 
       it "treats it as a full :hybrid despite the trailing qualifier" do
-        expect(vehicle.powertrain.type).to eq(:hybrid)
+        expect(vehicle.powertrain.propulsion).to eq(:hybrid)
       end
     end
 
@@ -152,7 +152,7 @@ RSpec.describe NhtsaAssembler do
       subject(:vehicle) { described_class.call("FUELCELL00000000", hash) }
 
       it "sets powertrain type to :fuel_cell" do
-        expect(vehicle.powertrain.type).to eq(:fuel_cell)
+        expect(vehicle.powertrain.propulsion).to eq(:fuel_cell)
       end
 
       it "has no plug-in fields" do
