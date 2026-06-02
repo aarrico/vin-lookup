@@ -17,19 +17,18 @@ RSpec.describe NhtsaService do
           )
       end
 
-      it "returns a hash keyed by NHTSA variable name" do
+      it "returns the full raw NHTSA response (not flattened)" do
         result = service.decode(gas_vin)
         expect(result).to be_a(Hash)
-        expect(result["Make"]).to eq("NISSAN")
-        expect(result["Model"]).to eq("Pathfinder")
-        expect(result["Model Year"]).to eq("2019")
+        expect(result["Results"]).to be_an(Array)
       end
 
-      it "includes powertrain fields" do
+      it "preserves raw fields that flattening would discard" do
         result = service.decode(gas_vin)
-        expect(result["Electrification Level"]).to eq("No applicable")
-        expect(result["Displacement (L)"]).to eq("3.5")
-        expect(result["Engine Number of Cylinders"]).to eq("6")
+        expect(result).to have_key("Count")
+        make_row = result["Results"].find { |r| r["Variable"] == "Make" }
+        expect(make_row["Value"]).to eq("NISSAN")
+        expect(make_row["ValueId"]).to eq("476")
       end
     end
 
@@ -69,6 +68,24 @@ RSpec.describe NhtsaService do
       it "raises NhtsaService::Error" do
         expect { service.decode(gas_vin) }.to raise_error(NhtsaService::Error)
       end
+    end
+  end
+
+  describe ".flatten" do
+    let(:raw) { JSON.parse(File.read(Rails.root.join("spec/fixtures/nhtsa_gas_response.json"))) }
+
+    it "returns a hash keyed by NHTSA variable name" do
+      flat = described_class.flatten(raw)
+      expect(flat["Make"]).to eq("NISSAN")
+      expect(flat["Model"]).to eq("Pathfinder")
+      expect(flat["Model Year"]).to eq("2019")
+    end
+
+    it "includes powertrain fields" do
+      flat = described_class.flatten(raw)
+      expect(flat["Electrification Level"]).to eq("No applicable")
+      expect(flat["Displacement (L)"]).to eq("3.5")
+      expect(flat["Engine Number of Cylinders"]).to eq("6")
     end
   end
 end

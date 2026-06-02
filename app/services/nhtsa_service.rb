@@ -12,11 +12,15 @@ class NhtsaService
     response = @client.get("DecodeVin/#{vin}", format: "json")
     raise Error, "NHTSA API error: #{response.status}" unless response.success?
 
-    results = JSON.parse(response.body).fetch("Results", [])
-    hash = results.each_with_object({}) { |r, h| h[r["Variable"]] = r["Value"] }
-    raise NotFoundError, "VIN not found: #{vin}" if hash["Make"].blank?
-    hash
+    raw = JSON.parse(response.body)
+    raise NotFoundError, "VIN not found: #{vin}" if self.class.flatten(raw)["Make"].blank?
+    raw
   rescue Faraday::Error => e
     raise Error, e.message
+  end
+
+  def self.flatten(raw)
+      results = raw.fetch("Results", [])
+      results.each_with_object({}) { |r, h| h[r["Variable"]] = r["Value"] }
   end
 end
