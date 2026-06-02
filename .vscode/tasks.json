@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Zeitwerk: autoload check",
+      "type": "shell",
+      "command": "bin/rails zeitwerk:check",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": {
+        "owner": "zeitwerk",
+        "fileLocation": "autoDetect",
+        "pattern": {
+          "regexp": "^.*expected file (.+?) to define constant (.+?), but didn't.*$",
+          "file": 1,
+          "message": 2
+        }
+      }
+    }
+  ]
+}

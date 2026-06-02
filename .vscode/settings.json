@@ -3,8 +3,7 @@
   "rubyLsp.rubyVersionManager": {
     "identifier": "rbenv"
   },
-  "rubyLsp.formatter": "rubocop",
-  "rubyLsp.linters": ["rubocop"],
+  "rubyLsp.features.diagnostics": true,
 
   // --- Ruby files: 2-space indent + format-on-save via RuboCop (omakase) ---
   "[ruby]": {
