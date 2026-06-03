@@ -33,7 +33,7 @@ RSpec.describe Dealer, type: :model do
     end
 
     it "stores and retrieves a hash" do
-      config = { "fields" => [ "year", "make", "model" ] }
+      config = { "allowed_fields" => [ "year", "make", "model" ] }
       dealer = Dealer.create!(name: "Test Motors", display_config: config)
       dealer.reload
       expect(dealer.display_config).to eq(config)

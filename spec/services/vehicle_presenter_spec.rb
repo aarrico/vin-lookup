@@ -46,7 +46,7 @@ RSpec.describe VehiclePresenter do
 
     context "with a fields allowlist in display_config" do
       before do
-        dealer.update!(display_config: { "fields" => [ "year", "make", "model" ] })
+        dealer.update!(display_config: { "allowed_fields" => [ "year", "make", "model" ] })
       end
 
       it "returns only the configured fields" do
