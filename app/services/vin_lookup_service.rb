@@ -1,5 +1,6 @@
 class VinLookupService
   def self.call(vin)
+    vin = Vin.normalize(vin)
     cached = VehicleLookup.find_by(vin: vin)
 
     if cached

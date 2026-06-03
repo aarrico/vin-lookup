@@ -9,7 +9,7 @@ class VehiclePresenter
   def present
     result = to_display_hash(@vehicle_data)
     result = filter_fields(result) if @config["fields"]
-    result = apply_labels(result) if @config["labels"]
+    result = apply_display_labels(result) if @config["labels"]
     result = merge_inventory(result) if @inventory
     result
   end
@@ -17,14 +17,12 @@ class VehiclePresenter
   private
 
   def filter_fields(hash)
-    allowed = @config["fields"]
-    hash.select { |k, _| allowed.include?(k) }
+    allowed_fields = @config["fields"]
+    hash.slice(*allowed_fields)
   end
 
-  def apply_labels(hash)
-    @config["labels"].each_with_object(hash.dup) do |(original, label), result|
-      result[label] = result.delete(original) if result.key?(original)
-    end
+  def apply_display_labels(hash)
+    hash.transform_keys(@config["labels"])
   end
 
   def merge_inventory(hash)
@@ -39,9 +37,10 @@ class VehiclePresenter
     hash.merge(inventory_fields)
   end
 
-  def to_display_hash(hash)
-    hash.to_h.transform_keys(&:to_s)
+  def to_display_hash(vehicle_data)
+    vehicle_data.to_h
+        .transform_keys(&:to_s)
         .except("source")
-        .merge(hash["powertrain"] => powertrain&.to_display_hash)
+        .merge("powertrain" => vehicle_data.powertrain&.to_display_hash)
   end
 end
