@@ -11,10 +11,4 @@ VehicleData = Data.define(
   :powertrain,
   :features,
   :source
-) do
-  def to_display_hash
-    to_h.transform_keys(&:to_s)
-        .except("source")
-        .merge("powertrain" => powertrain&.to_display_hash)
-  end
-end
+)

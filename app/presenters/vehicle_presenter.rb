@@ -7,7 +7,7 @@ class VehiclePresenter
   end
 
   def present
-    result = @vehicle_data.to_display_hash
+    result = to_display_hash(@vehicle_data)
     result = filter_fields(result) if @config["fields"]
     result = apply_labels(result) if @config["labels"]
     result = merge_inventory(result) if @inventory
@@ -37,5 +37,11 @@ class VehiclePresenter
       "packages"       => @inventory.packages
     }.compact
     hash.merge(inventory_fields)
+  end
+
+  def to_display_hash(hash)
+    hash.to_h.transform_keys(&:to_s)
+        .except("source")
+        .merge(hash["powertrain"] => powertrain&.to_display_hash)
   end
 end
