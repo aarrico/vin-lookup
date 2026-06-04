@@ -8,9 +8,9 @@ class VehiclePresenter
 
   def present
     result = to_display_hash(@vehicle_data)
+    result = merge_inventory(result) if @inventory
     result = filter_fields(result) if @config.restrict_fields?
     result = apply_display_labels(result) if @config.relabel?
-    result = merge_inventory(result) if @inventory
     result
   end
 
