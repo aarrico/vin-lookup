@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_28_172454) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_06_120003) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
   create_table "dealer_inventories", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.integer "dealer_id", null: false
-    t.string "exterior_color"
-    t.string "interior_color"
+    t.jsonb "custom_fields", default: {}, null: false
+    t.bigint "dealer_id", null: false
     t.integer "mileage"
-    t.text "notes"
-    t.text "packages"
     t.integer "price_cents"
     t.string "status"
     t.datetime "updated_at", null: false
