@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 8.1.3"
-gem "sqlite3", ">= 2.1"
+gem "pg", "~> 1.5"           # primary database
+gem "sqlite3", ">= 2.1"     # Solid stack (cache/queue/cable) in production
 gem "puma", ">= 5.0"
 gem "faraday"
 gem "bootsnap", require: false

@@ -1,0 +1,45 @@
+# Full-stack dev environment: `docker compose up` → Postgres + Rails, ready to test.
+# Run tests in the container: `docker compose exec api bundle exec rspec`
+# See docs/adr/0001-postgres-and-docker-dev.md.
+
+services:
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    ports:
+      - "5432:5432" # exposed for host tools (psql, GUI clients); remove if unwanted
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bin/rails server -b 0.0.0.0 -p 3000
+    environment:
+      RAILS_ENV: development
+      BUNDLE_PATH: /usr/local/bundle
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+    volumes:
+      - .:/rails # live source for reload
+      - bundle:/usr/local/bundle # persist installed gems across `up`s
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    stdin_open: true # keep STDIN open for binding.irb / debug gem
+    tty: true
+
+volumes:
+  postgres_data:
+  bundle:

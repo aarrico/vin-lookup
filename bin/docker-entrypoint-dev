@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+bundle check || bundle install
+
+# Remove a stale server pid if a previous container exited uncleanly.
+rm -f tmp/pids/server.pid
+
+bin/rails db:prepare
+
+RAILS_ENV=test bin/rails db:test:prepare
+
+exec "$@"
