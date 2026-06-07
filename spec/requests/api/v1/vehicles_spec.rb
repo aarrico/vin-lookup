@@ -47,7 +47,7 @@ RSpec.describe "GET /api/v1/vehicles/:vin", type: :request do
   context "with an invalid VIN format" do
     it "returns 422" do
       get "/api/v1/vehicles/BADVIN", headers: headers
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
     end
   end
 

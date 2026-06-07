@@ -18,7 +18,7 @@ module Api
       private
 
       def render_invalid_vin
-        render json: { error: "Invalid VIN format" }, status: :unprocessable_entity
+        render json: { error: "Invalid VIN format" }, status: :unprocessable_content
       end
     end
   end
